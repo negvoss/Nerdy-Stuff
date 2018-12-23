@@ -1,0 +1,67 @@
+:root {
+  --iconWidth:30px;
+  --canvasPosition:375px;
+}
+
+.defaultSlider {
+  height:21px;
+  width:100px;
+}
+.histButton {
+  height:30px;
+  width:60px;
+}
+#sav {
+  height:21px;
+  width:123px;
+}
+#dropZone {
+  border-style:dashed;
+  position:relative;
+  top:5px;
+  width:150px;
+  padding:10px;
+}
+#canvasContainer {
+  position:absolute;
+  top:-5px;
+  left:var(--canvasPosition);
+}
+#toolbar {
+  position:absolute;
+  top:405;
+  left:var(--canvasPosition);
+}
+#zoomIn {
+  background-image:url("icons/zoom_in.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#zoomOut {
+  background-image:url("icons/zoom_out.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#move {
+  background-image:url("icons/move.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#zoomHome {
+  background-image:url("icons/zoom_home.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#magicWand {
+  background-image:url("icons/magic_wand.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#eraser {
+  background-image:url("icons/eraser.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#logo {
+  width:350px;
+}

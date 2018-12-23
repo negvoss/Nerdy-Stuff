@@ -1,0 +1,53 @@
+.defaultSlider {
+  height:21px;
+  width:100px;
+}
+.histButton {
+  height:30px;
+  width:60px;
+}
+#toolSwapper {
+  height:21px;
+  width:120px;
+}
+#sav {
+  height:21px;
+  width:120px;
+}
+#dropZone {
+  border-style:dashed;
+  width:300px;
+  padding:10px;
+}
+#canvasContainer {
+  position:absolute;
+  top:-5px;
+  left:255px;
+}
+#zoomIn {
+  background-image:url("images/zoom_in.png");
+  position:relative;
+  top:35px;
+  left:102px;
+  height:30px;
+  width:30px;
+}
+#zoomOut {
+  background-image:url("images/zoom_out.png");
+  position:relative;
+  top:35px;
+  left:102px;
+  height:30px;
+  width:30px;
+}
+#zoomHome {
+  background-image:url("images/zoom_home.png");
+  position:relative;
+  top:35px;
+  left:102px;
+  height:30px;
+  width:30px;
+}
+#logo {
+  width:300px;
+}

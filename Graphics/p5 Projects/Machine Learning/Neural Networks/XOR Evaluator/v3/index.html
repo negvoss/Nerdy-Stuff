@@ -1,0 +1,20 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>XOR Evaluator</title>
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/matrix.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/neuralnetwork.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+</head>
+<body>
+  <input type = number value = 0 min = 0 max = 1 style = "width:50px" id = "inp1"></input>
+  <input type = number value = 0 min = 0 max = 1 style = "width:50px" id = "inp2"></input>
+  <button id = "evaluate">Evaluate</button>
+  <span id = "result">Result:</span>
+  <br>
+  <button id = "toggleTraining">Start Training</button>
+  <div id = "trainingError">Current Training Error: 100%</div>
+</body>
+</html>

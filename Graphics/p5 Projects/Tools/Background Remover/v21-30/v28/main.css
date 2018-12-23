@@ -1,0 +1,67 @@
+.defaultSlider {
+  height:21px;
+  width:100px;
+}
+.histButton {
+  height:30px;
+  width:60px;
+}
+#toolSwapper {
+  height:21px;
+  width:120px;
+}
+#sav {
+  height:21px;
+  width:123px;
+}
+#dropZone {
+  border-style:dashed;
+  position:relative;
+  top:5px;
+  left:-75px;
+  width:150px;
+  padding:10px;
+}
+#canvasContainer {
+  position:absolute;
+  top:-5px;
+  left:380px;
+}
+#toolbar {
+  position:absolute;
+  top:405;
+  left:380px;
+}
+#zoomIn {
+  background-image:url("icons/zoom_in.png");
+  height:30px;
+  width:30px;
+}
+#zoomOut {
+  background-image:url("icons/zoom_out.png");
+  height:30px;
+  width:30px;
+}
+#move {
+  background-image:url("icons/move.png");
+  height:30px;
+  width:30px;
+}
+#zoomHome {
+  background-image:url("icons/zoom_home.png");
+  height:30px;
+  width:30px;
+}
+#magicWand {
+  background-image:url("icons/magic_wand.png");
+  height:30px;
+  width:30px;
+}
+#eraser {
+  background-image:url("icons/eraser.png");
+  height:30px;
+  width:30px;
+}
+#logo {
+  width:300px;
+}

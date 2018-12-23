@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Character Detector</title>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/matrix.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/neuralnetwork.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  </head>
+  <body>
+    <h2 id = "characters"></h2>
+    <span id = "trainingError">Current Training Error: 100%</span>
+    <button id = "toggleTraining">Start Training</button>
+    <p id = "canvasContainer"></p>
+    <div id = "result" style = "font-size:40px">Result:</div>
+    Wrong? Add the correct answer here:
+    <select id = "userFeedback" style = "width:40px; font-size:18px"></select>
+    <button id = "addToTraining">Add To Training Database</button>
+    <br>
+    <br>
+    <p id = "canvasContainer"></p>
+</body>
+</html>

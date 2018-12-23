@@ -1,0 +1,15 @@
+body {
+  background-color:palegoldenrod;
+  background-image:url("/images/background_logo.png");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:30%;
+}
+
+#feedback1 {
+  font-size:30px;
+}
+
+#feedback2 {
+  font-size:15px;
+}

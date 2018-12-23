@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Convolution Test</title>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="filterinterface.js" type="text/javascript"></script>
+    <script src="timer.js" type="text/javascript"></script>
+    <script src="sketch.js" type="text/javascript"></script>
+    <script src="drawing.js" type="text/javascript"></script>
+    <script src="firebasesetup.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <p id = "canvasContainer"></p>
+    <input type = checkbox id = "normalize" checked>Normalize</input>
+    <button id = "convolve">Convolve</button>
+    Name Of Filter: <input id = "filterName"></input>
+    <button id = "saveFilter">Save Filter To Database</button>
+    <span id = "filterSelectContainer"></span>
+  </body>
+</html>

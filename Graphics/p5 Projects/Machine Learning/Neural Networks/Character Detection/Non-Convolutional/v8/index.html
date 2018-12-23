@@ -1,0 +1,21 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Character Detector</title>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/matrix.js"></script>
+  <script language="javascript" type="text/javascript" src="libraries/neuralnetwork.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+</head>
+<body>
+  <span id = "result">Result:</span>
+  <br>
+  <button id = "toggleTraining">Start Training</button>
+  <button id = "addToTraining">Add Image To Training Database</button>
+  <input type = number id = "userAnswer" value = 0 min = 0 style = "width:50px"></button>
+  <span id = "userAnswerLabel"></span>
+  <div id = "trainingError">Current Training Error: 100%</div>
+</body>
+</html>

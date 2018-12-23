@@ -1,0 +1,71 @@
+{
+  "dictInfo":[
+    {
+      "from":"English",
+      "to":"Chinese",
+      "url":"http://www.wordreference.com/enzh/"
+    },
+    {
+      "from":"English",
+      "to":"French",
+      "url":"http://www.wordreference.com/enfr/"
+    },
+    {
+      "from":"English",
+      "to":"German",
+      "url":"http://www.wordreference.com/ende/"
+    },
+    {
+      "from":"English",
+      "to":"Hebrew",
+      "url":"http://www.morfix.co.il/"
+    },
+    {
+      "from":"English",
+      "to":"Russian",
+      "url":"http://www.wordreference.com/enru/"
+    },
+    {
+      "from":"English",
+      "to":"Spanish",
+      "url":"http://www.wordreference.com/enes/"
+    },
+    {
+      "from":"French",
+      "to":"English",
+      "url":"http://www.wordreference.com/fren/"
+    },
+    {
+      "from":"German",
+      "to":"English",
+      "url":"http://www.wordreference.com/deen/"
+    },
+    {
+      "from":"Hebrew",
+      "to":"English",
+      "url":"http://www.morfix.co.il/"
+    },
+    {
+      "from":"Spanish",
+      "to":"English",
+      "url":"http://www.wordreference.com/esen/"
+    }
+  ],
+  "langCodes": {
+    "Chinese":"zh-CN",
+    "English":"en",
+    "French":"fr",
+    "German":"de",
+    "Hebrew":"iw",
+    "Russian":"ru",
+    "Spanish":"es"
+  },
+  "voices": {
+    "Chinese":"Chinese Female",
+    "English":"US English Female",
+    "French":"French Female",
+    "German":"Deutsch Female",
+    "Russian":"Russian Female",
+    "Spanish":"Spanish Latin American Female"
+  }
+}

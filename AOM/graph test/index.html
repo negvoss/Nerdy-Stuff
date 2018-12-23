@@ -1,0 +1,199 @@
+<html>
+  <head>
+    <script>
+      window.onload = function() {
+        createGraph({
+          present:10,
+          absent:5,
+          excused:2,
+          notRecorded:2
+        });
+        createGraph({
+          present:4,
+          absent:7,
+          excused:20,
+          notRecorded:1
+        });
+        createGraph({
+          present:35,
+          absent:2,
+          excused:5,
+          notRecorded:6
+        });
+      }
+      const hsl = function(color) {
+        return 'hsl(' + color[0] + ',' + color[1] + '%,' + color[2] + '%)';
+      }
+
+      const createGraph = function(data) {
+        const container = document.createElement('container');
+        container.className = 'chartContainer';
+        const canvas = document.createElement('canvas');
+        canvas.className = 'canvas';
+        canvas.width = 300;
+        canvas.height = 300;
+        const ctx = canvas.getContext('2d');
+        const legend = document.createElement('div');
+        legend.className = 'legend';
+        container.appendChild(canvas);
+        container.appendChild(legend);
+        document.body.appendChild(container);
+
+        let lastSliceAngle = 0;
+        const slices = [];
+        const createSlice = function(title,count,percent) {
+          const angle = 2*Math.PI*percent/100 + lastSliceAngle;
+          const slice = {
+            title:title,
+            count:count,
+            percent:percent,
+            range:[lastSliceAngle,angle],
+            color:nextColor(),
+            show:function(options) {
+              ctx.beginPath();
+              ctx.moveTo(canvas.width/2,canvas.height/2);
+              ctx.fillStyle = hsl(this.color);
+              ctx.font = '20px Arial';
+              ctx.textAlign = 'center';
+              if (options) {
+                if (options.extend) {
+                  ctx.arc(canvas.width/2,canvas.height/2,canvas.width/2.9,this.range[0],this.range[1]);
+                } else {
+                  ctx.arc(canvas.width/2,canvas.height/2,canvas.width/3,this.range[0],this.range[1]);
+                }
+                if (options.color) {
+                  ctx.fillStyle = hsl(options.color);
+                  ctx.fill();
+                }
+                if (options.bold) {
+                  ctx.font = 'bold 20px Arial';
+                }
+              } else {
+                ctx.arc(canvas.width/2,canvas.height/2,canvas.width/3,this.range[0],this.range[1]);
+                ctx.fill();
+              }
+              ctx.fillStyle = 'black';
+              const textAngle = (this.range[0] + this.range[1])/2;
+              let distanceOut = canvas.width/5;
+              if (this.percent <= 13) {
+                distanceOut = canvas.width*0.45;
+              }
+              ctx.fillText(Math.round(this.percent) + '%',canvas.width/2 + distanceOut*Math.cos(textAngle),canvas.height/2 + distanceOut*Math.sin(textAngle) + 8);
+            },
+            hover:function() {
+              showAllSlices();
+              slice.show({
+                color:[slice.color[0],slice.color[1],70],
+                bold:true,
+                extend:true
+              });
+            }
+          };
+          slices.push(slice);
+          const row = document.createElement('div');
+          const colorBox = document.createElement('div');
+          colorBox.className = 'colorBox';
+          colorBox.style.backgroundColor = hsl(slice.color);
+          colorBox.onmousemove = function(e) {
+            const rect = colorBox.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            if (mouseX <= rect.width) {
+              slice.hover();
+              colorBox.style.backgroundColor = hsl([slice.color[0],slice.color[1],80]);
+            }
+          }
+          colorBox.onmouseout = function() {
+            showAllSlices();
+            colorBox.style.backgroundColor = hsl(slice.color);
+          }
+          row.appendChild(colorBox);
+          const label = document.createElement('div');
+          label.className = 'colorBoxLabel';
+          label.textContent = slice.title + ': ' + slice.count;
+          colorBox.appendChild(label);
+          legend.appendChild(row);
+          lastSliceAngle = angle;
+        }
+        const showAllSlices = function() {
+          ctx.fillStyle = 'white';
+          ctx.fillRect(0,0,canvas.width,canvas.height);
+          for (const slice of slices) {
+            slice.show();
+          }
+        }
+        let colorIndex = 0;
+        const nextColor = function() {
+          return [(140*colorIndex++)%360,70,60];
+        }
+        const total = data.present + data.absent + data.excused + data.notRecorded;
+        createSlice('Present',data.present,100*data.present/total);
+        createSlice('Absent',data.absent,100*data.absent/total);
+        createSlice('Excused',data.excused,100*data.excused/total);
+        createSlice('Not Recorded',data.notRecorded,100*data.notRecorded/total);
+        showAllSlices();
+        canvas.onmousemove = function(e) {
+          showAllSlices();
+          const rect = canvas.getBoundingClientRect();
+          const mouseX = e.clientX - rect.left;
+          const mouseY = -(e.clientY - rect.top) + canvas.height;
+          const distToCenter = Math.sqrt(Math.pow(mouseX - canvas.width/2,2) + Math.pow(mouseY - canvas.height/2,2)) || 1;
+          let mouseAngle;
+          if (mouseY < canvas.height/2) {
+            mouseAngle = Math.acos((mouseX - canvas.width/2)/distToCenter);
+          } else {
+            mouseAngle = Math.PI*2 + -Math.acos((mouseX - canvas.width/2)/distToCenter);
+          }
+          if (distToCenter <= canvas.width/3) {
+            for (const slice of slices) {
+              if ((mouseAngle >= slice.range[0] && mouseAngle <= slice.range[1]) || (mouseAngle >= slice.range[1] && mouseAngle <= slice.range[0])) {
+                // hovering over a slice
+                slice.hover();
+              }
+            }
+          }
+        }
+        canvas.onmouseout = function() {
+          showAllSlices();
+        }
+      }
+    </script>
+    <style>
+      .colorBox {
+        width:15px;
+        height:15px;
+        border:1px solid;
+        margin:5px;
+      }
+      .colorBoxLabel {
+        position:relative;
+        top:2px;
+        left:60px;
+        width:200px;
+        font-size: 12px;
+    	  font-family: verdana;
+      }
+      .chartContainer {
+        display:inline-block;
+        padding:5px;
+        width:550px;
+        height:302px;
+        font-size:12px;
+	      border: 1px solid red;
+      }
+      .canvas {
+        float:left;
+      }
+      .legend {
+        display:inline-block;
+        width:180px;
+        height:250px;
+        float:left;
+        position:relative;
+        left:12px;
+        padding:25px;
+      }
+    </style>
+  </head>
+  <body>
+  </body>
+</html>

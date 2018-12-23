@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>ByeByeBackground</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <script language="javascript" type="text/javascript" src="algorithms/floodfill.js"></script>
+    <script language="javascript" type="text/javascript" src="algorithms/drawonimage.js"></script>
+    <script language="javascript" type="text/javascript" src="algorithms/pixels.js"></script>
+    <script language="javascript" type="text/javascript" src="algorithms/zoom.js"></script>
+    <script language="javascript" type="text/javascript" src="algorithms/history.js"></script>
+    <script language="javascript" type="text/javascript" src="algorithms/files.js"></script>
+    <p>
+      <span id = "fileInput"></span>
+      <div id = "dropZone">Or drop an image here.</div>
+    </p>
+    <p>
+      <select id = "toolSwapper">
+        <option value = "Magic Wand">Magic Wand</option>
+        <option value = "Eraser">Eraser</option>
+      </select>
+      <input type = "range" class = defaultSlider id = "tolerance" min = 0 max = 255 value = 50></input>
+      <span id = "tolValue"></span>
+    </p>
+    <p>
+      <button id = "sav">Save Image</button>
+      <input type = "range" class = defaultSlider id = "eraserSize" min = 0 max = 50 value = 7></input>
+      <span id = "eraserSizeValue"></span>
+    </p>
+    <p>
+      <button id = "undoButton" class = histButton>Undo</button>
+      <button id = "redoButton" class = histButton>Redo</button>
+    </p>
+    <p id = "canvasContainer">
+      <button id = "zoomIn"></button>
+      <button id = "zoomOut"></button>
+      <button id = "move"></button>
+      <button id = "zoomHome"></button>
+    </p>
+    <img id = "logo" src = "images/BBBLogo.png"></img>
+  </head>
+</html>

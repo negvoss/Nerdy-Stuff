@@ -1,0 +1,11 @@
+{
+  "manifest_version":2,
+  "name":"Remote Quizlet Set Extension",
+  "version":"0.1",
+  "browser_action": {
+    "default_popup":"popup.html"
+  },
+  "permissions": [
+    "https://api.quizlet.com/"
+  ]
+}

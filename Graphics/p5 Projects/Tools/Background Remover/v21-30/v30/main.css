@@ -1,0 +1,79 @@
+:root {
+  --iconWidth:30px;
+  --canvasDimension:405px;
+  --canvasPosition:375px;
+}
+
+.defaultSlider {
+  width:100px;
+  height:21px;
+}
+#dropZone {
+  border-style:dashed;
+  position:relative;
+  top:5px;
+  width:150px;
+  padding:10px;
+}
+#eraserSizeValue {
+  position:relative;
+  left:23px;
+}
+#canvasContainer {
+  position:absolute;
+  top:-5px;
+  left:var(--canvasPosition);
+}
+#toolbar {
+  position:absolute;
+  top:var(--canvasDimension);
+  left:var(--canvasPosition);
+}
+#sav {
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+  background-image:url("icons/save.png");
+}
+#undoButton {
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+  background-image:url("icons/undo.png");
+}
+#redoButton {
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+  background-image:url("icons/redo.png");
+}
+#zoomIn {
+  background-image:url("icons/zoom_in.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#zoomOut {
+  background-image:url("icons/zoom_out.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#move {
+  background-image:url("icons/move.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#zoomHome {
+  background-image:url("icons/zoom_home.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#magicWand {
+  background-image:url("icons/magic_wand.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#eraser {
+  background-image:url("icons/eraser.png");
+  width:var(--iconWidth);
+  height:var(--iconWidth);
+}
+#logo {
+  width:350px;
+}

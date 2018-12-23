@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>ByeByeBackground ✋✋</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+    <script language="javascript" type="text/javascript" src="libraries/p5.dom.js"></script>
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <script language="javascript" type="text/javascript" src="processes/floodfill.js"></script>
+    <script language="javascript" type="text/javascript" src="processes/drawonimage.js"></script>
+    <script language="javascript" type="text/javascript" src="processes/pixels.js"></script>
+    <script language="javascript" type="text/javascript" src="processes/zoom.js"></script>
+    <script language="javascript" type="text/javascript" src="processes/history.js"></script>
+    <script language="javascript" type="text/javascript" src="processes/files.js"></script>
+    <p id = "canvasContainer"></p>
+    <p id = "toolbar">
+      <button id = "sav" title = "Save Image"></button>
+      <button id = "undoButton" title = "Undo"></button>
+      <button id = "redoButton" title = "Redo"></button>
+      <button id = "zoomIn" title = "Zoom In"></button>
+      <button id = "zoomOut" title = "Zoom Out"></button>
+      <button id = "move" title = "Pan Image"></button>
+      <button id = "zoomHome" title = "Home View"></button>
+      <button id = "magicWand" title = "Remove Background"></button>
+      <button id = "eraser" title = "Eraser"></button>
+      <span style = "position:relative;top:-9px">
+        <input type = "number" class = defaultNumber id = "tolerance" min = 0 max = 255 value = 50>
+          Tolerance
+        </input>
+        <input type = "number" class = defaultNumber id = "eraserSize" min = 0 max = 30 value = 5>
+          Eraser Size
+        </input>
+      </span>
+    </p>
+    <p id = "fileSelectionPanel">
+      <span id = "dropZone">Drop an image here</span>
+      OR
+      <span id = "fileInput"></span>
+    </p>
+    <img id = "logo" src = "images/BBBLogo.png"></img>
+  </head>
+</html>

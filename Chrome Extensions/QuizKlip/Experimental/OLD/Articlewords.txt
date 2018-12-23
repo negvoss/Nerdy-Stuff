@@ -1,0 +1,100 @@
+const supportedTags = ["B","BIG","BLOCKQUOTE","CENTER","DEL","DIV","FONT","H1","H2","H3","H4","H5","H6","I","INS","LI","OL","P","PRE","Q","S","SMALL","SPAN","STRONG","SUB","SUP","TD","TH","TR","TT","U","UL"];
+const nonClickableParentTags = ["A","BUTTON","EM"];
+let textBlockHistory;
+const setupArticleWords = function() {
+  textBlockHistory = [];
+  for (const textBlock of textNodesUnder(document)) {
+    let parent = textBlock.parentNode;
+    if (parent) {
+      let clickable = supportedTags.includes(parent.tagName);
+      while (clickable && parent.parentNode) {
+        if (parent.parentNode) {
+          if (!(nonClickableParentTags.includes(parent.parentNode.tagName) || (parent.parentNode.style && parent.parentNode.style.cursor && parent.parentNode.style.cursor == "pointer") || (parent.parentNode.attributes && parent.parentNode.attributes.role && parent.parentNode.attributes.role.textContent == "link"))) { // role = link: google drive pseudo-link that should not be allowed in quizKlip activation
+            parent = parent.parentNode;
+          } else {
+            clickable = false;
+            break;
+          }
+        }
+      }
+      if (clickable) {
+        if (textBlock.parentNode.className != "articleWord") {
+          const newTextBlock = document.createElement("span");
+          if (selectedLanguage) {
+            if (selectedLanguage.from != "Chinese") {
+              newTextBlock.innerHTML = textBlock.textContent.replace(/([^ -&(-@[-`{-¿'-??-?,‘’“”\n\s\u00AD]+)/g,"<span class = 'articleWord' style = 'border-radius:5px;padding:0px;display:inline'>$1</span>");
+            } else {
+              newTextBlock.innerHTML = textBlock.textContent.replace(/([^ -&(-@[-`{-¿'-??-?,‘’“”\n\s\u00AD])/g,"<span class = 'articleWord' style = 'border-radius:5px;padding:0px;display:inline'>$1</span>");
+            }
+            newTextBlock.style.padding = "0px";
+            newTextBlock.style.margin = "0px";
+            if (newTextBlock.getElementsByClassName("articleWord").length > 0) {
+              textBlockHistory.push({
+                original:textBlock.textContent,
+                new:newTextBlock
+              });
+              // textBlock.parentNode.replaceChild(newTextBlock,textBlock);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  for (const word of document.getElementsByClassName("articleWord")) {
+    word.onmousemove = function(e) {
+      if (enabled && selectionLength == 0) {
+        word.style.backgroundColor = "rgb(207,202,148)";
+        activate = true;
+        document.body.style.cursor = "url(" + chrome.extension.getURL("cursors/cursor_activate.cur") + "),auto";
+      }
+    }
+    word.onmouseout = function() {
+      word.style.backgroundColor = "initial";
+      activate = false;
+    }
+
+    let clickCount = 0;
+    word.onclick = function(e) {
+      if (activate) {
+        clickCount++;
+        switch(clickCount) {
+          case 1:
+          clickTimer = setTimeout(function() {
+            clickCount = 0;
+            if (activate) {
+              if (e.button == 0) {
+                const msg = {
+                  messageType:"search",
+                  term:word.textContent
+                };
+                chrome.runtime.sendMessage(msg);
+                document.body.style.cursor = "progress";
+                searching = true;
+              }
+            }
+          },250);
+          break;
+          case 2:
+          clickCount = 0;
+          clearTimeout(clickTimer);
+        }
+      }
+    }
+  }
+}
+
+const removeArticleWords = function(callback) {
+  if (textBlockHistory) {
+    for (const textBlock of textBlockHistory) {
+      if (textBlock.new.parentNode) {
+        textBlock.new.parentNode.replaceChild(document.createTextNode(textBlock.original),textBlock.new);
+      }
+    }
+  }
+  if (callback) {
+    callback();
+  }
+}
+
+

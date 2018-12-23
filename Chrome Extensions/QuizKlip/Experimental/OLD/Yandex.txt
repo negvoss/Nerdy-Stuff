@@ -1,0 +1,42 @@
+
+
+
+// const request = {
+//   key:"trnsl.1.1.20181117T203959Z.d4fb557f54e00a66.7c5f379cd587edb45a3eca7866fa25623423afa4",
+//   text:"Hello, my name is Aaron Gostein.",
+//   lang:"en-es",
+//   format:"plain",
+//   options:1
+// }
+//
+// get("https://translate.yandex.net/api/v1.5/tr.json/translate?key=" + request.key + "&text=" + request.text + "&lang=" + request.lang + "&options=" + request.options,function(data) {
+//   console.log(data);
+// });
+
+
+
+// const apiKey = "AIzaSyA7P4nrEoQ_CDy1vwXH_bx_Phn00lhj-3k";
+// const clientId = "757804318569-2a1kk8h692lnft3o64s72o66m98kgt8s.apps.googleusercontent.com";
+// const clientSecret = "kcf7ttalk-H1j9L3HvN22dOf";
+//
+// const data = {
+//   q:"Hello, my name is Aaron",
+//   target:"es"
+// };
+//
+// const translate = function(data) {
+//   url = "https://www.googleapis.com/language/translate/v2?key=" + apiKey;
+//
+//   // send target and source languages
+//   url += "&target=" + "es";
+//   url += "&source=" + "en";
+//
+//   url += "&q=" + data.q;
+//
+//   // Return response from API
+//   get(url,data,function(data) {
+//     console.log(data);
+//   });
+// }
+
+// translate(data);

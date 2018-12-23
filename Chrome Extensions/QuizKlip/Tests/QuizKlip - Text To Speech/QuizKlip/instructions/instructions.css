@@ -1,0 +1,16 @@
+.inlineImage {
+  width:15px;
+  position:relative;
+}
+.smallImage {
+  width:230px;
+  position:relative;
+  border:solid;
+  border-width:1px;
+}
+.bigImage {
+  width:500px;
+  position:relative;
+  border:solid;
+  border-width:1px;
+}

@@ -1,0 +1,11 @@
+{
+  "manifest_version":2,
+  "content_security_policy": "script-src 'self' https://code.responsivevoice.org/ 'unsafe-eval'; object-src 'self'",
+  "name":"Text To Speech",
+  "version":"0.1",
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}

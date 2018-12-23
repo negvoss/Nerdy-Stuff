@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>QuizKlip Terms</title>
+    <script src="popup.js" type="text/javascript"></script>
+    <link rel = "stylesheet" href = "popup.css"></link>
+  </head>
+  <body>
+    <div id = "selectAllBox">
+      <label class = "selectCheckboxContainer">
+        <input id = "selectAll" type = "checkbox" class = "selectCheckbox"></input>
+        <span id = "selectAllMark" class = checkmark></span>
+        <div id = "selectAllMsg">Select All</div>
+      </label>
+      <h1 id = "header">QuizKlip Terms</h1>
+      <button id = "instructions" class = "controlButton" title = "Go to QuizKlip Instructions"></button>
+    </div>
+    <div id = "tableWrapper">
+      <table id = "terms" cellspacing = "0px">
+        <tr id = "noTermsMsg">
+          <td>Terms List Empty</td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <div id = "controls">
+      <span id = "termControls"></span>
+      <span id = "translationSettings">
+        <select id = "from"></select><img id = "arrow" width = "35px" src = "images/right_arrow.png"></img><select id = "to"></select>
+      </span>
+    </div>
+    <span id = "quizKlipEnabled">QuizKlip Enabled: </span>
+    <label id = "toggleExtension" class = "switch">
+      <input type = "checkbox" checked></input>
+      <span class = "slider round"></span>
+    </label>
+    <span id = "version"></span>
+    <div id = "termsDeleted" hidden>Deleted</div>
+    <div id = "termsCopied" hidden>Copied!</div>
+  </body>
+</html>

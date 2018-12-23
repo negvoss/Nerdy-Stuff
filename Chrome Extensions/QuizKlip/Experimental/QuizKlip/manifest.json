@@ -1,0 +1,42 @@
+{
+  "manifest_version":2,
+  "name":"QuizKlip Language Learning Tool",
+  "short_name":"QuizKlip",
+  "description":"Word List Builder and Quizlet Helper for Language Learners",
+  "version":"1.0.8",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "all_frames":false
+    }
+  ],
+  "browser_action": {
+    "default_icon":"logos/logo128x128.png",
+    "default_popup":"popup/popup.html",
+    "default_title":"QuizKlip"
+  },
+  "web_accessible_resources": [
+    "create-set-redirect/*",
+    "cursors/*",
+    "logos/*",
+    "images/*",
+    "languageInfo.json"
+  ],
+  "permissions": [
+    "tabs",
+    "storage",
+    "contextMenus",
+    "http://morfix.co.il/",
+    "http://www.wordreference.com/",
+    "https://api.quizlet.com/"
+  ],
+  "icons": {
+    "16": "logos/logo128x128.png",
+    "48": "logos/logo128x128.png",
+    "128": "logos/logo128x128.png"
+  }
+}
